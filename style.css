@@ -1,0 +1,32 @@
+body {
+    background-image: url("fon.png");
+    font-family: serif;
+
+}
+div.box{
+    margin-left: auto;
+    margin-right: auto;
+    width: 1000px;
+    height: 700px;
+    border-radius: 10px;
+    box-shadow: 0 0 7px 3px #000000;
+    background: linear-gradient(to right, rgba(162, 146, 215, 0.95), #2f58a9);
+}
+h2 {
+    margin-top: 50px;
+    color: #000000;
+    font-size: 25px;
+    text-align: center;
+    font-weight: 100
+
+
+
+
+}
+
+img{
+    width: 30%;
+    display: block;
+    margin-left: auto;
+    margin-right: auto
+}
