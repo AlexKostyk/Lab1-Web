@@ -1,5 +1,7 @@
 body {
     background-image: url("fon.png");
+    background-image: url("retrowave.gif");
+    background-size: cover;
     font-family: serif;
 
 }
@@ -46,7 +48,7 @@ h2 {
 img{
     margin: 10px 10px 10px 10px;
     float: right;
-    width: 43%;
+    width: 30%;
     display: block;
     border-top: 2px solid #777777;
     border-right: 2px solid #777777;

@@ -4,106 +4,64 @@
     <meta charset="UTF-8">
     <title>Лабораторная работа по Web-программированию №1</title>
     <link rel="stylesheet" type="text/css" href="style.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
 </head>
 
 <body>
-<div class="box">
-    <h2>
-        Костюк Александр, Поляков Даниил<br>Группа P33212 <br>Вариант: 16213
-    </h2>
-    <img
-            src="image.png"
-            alt="Не удалось не получилось">
+    <div class="box">
+        <h2>
+            Костюк Александр, Поляков Даниил<br>Группа P33212 <br>Вариант: 16213
+        </h2>
+        <img
+                src="graph.svg"
+                alt="Не удалось не получилось">
 
-    <div class="form_container">
-        <form id="form" method="post" target="result" onsubmit="return false">
+        <div class="form_container">
+            <form id="form" method="get" onsubmit="return false">
 
-            Выберите X:
-            <select name="x">
-                <option value="-3">-3</option>
-                <option value="-2">-2</option>
-                <option value="-1">-1</option>
-                <option value="0">0</option>
-                <option value="1">1</option>
-                <option value="2">2</option>
-                <option value="3">3</option>
-                <option value="4">4</option>
-                <option value="5">5</option>
-            </select>
+                Выберите X:
+                <select name="x">
+                    <option name="x" value="-3">-3</option>
+                    <option name="x" value="-2">-2</option>
+                    <option name="x" value="-1">-1</option>
+                    <option name="x" value="0">0</option>
+                    <option name="x" value="1">1</option>
+                    <option name="x" value="2">2</option>
+                    <option name="x" value="3">3</option>
+                    <option name="x" value="4">4</option>
+                    <option name="x" value="5">5</option>
+                </select>
+                <br>
+                Введите Y:
+                <input type="text"  placeholder="-5..5" name="y" >
+                <br>
+                Выберите R:
+                <input type="radio" checked="checked" name="r" value="1">1
+                <input type="radio" name="r" value="2">2
+                <input type="radio" name="r" value="3">3
+                <input type="radio" name="r" value="4">4
+                <input type="radio" name="r" value="5">5
+                <br>
+                <input type="submit" id="submit" value="Отправить">
+                <input type="button" id="reset" value="Очистить таблицу">
+            </form>
             <br>
-            Введите Y:
-            <input type="text"  placeholder="-5..5" name="y" >
-            <br>
-            Выберите R:
-            <input type="radio" checked="checked" name="r" value="1">1
-            <input type="radio" name="r" value="2">2
-            <input type="radio" name="r" value="3">3
-            <input type="radio" name="r" value="4">4
-            <input type="radio" name="r" value="5">5
-            <br>
-            <input type="submit" id="submit" value="Отправить">
-        </form>
-        <br>
-        <span id="error"></span>
+        </div>
+
+        <div id="error"></div>
+
+        <table id="result-table" class="table_blur">
+            <tr class="table-header">
+                <th>X</th>
+                <th>Y</th>
+                <th>R</th>
+                <th>Локальное время</th>
+                <th>Время исполнения</th>
+                <th>Попадание</th>
+            </tr>
+        </table>
+
     </div>
-
-    <table id="result-table" class="table_blur">
-        <tr class="table-header">
-            <th>X</th>
-            <th>Y</th>
-            <th>R</th>
-            <th>Локальное время</th>
-            <th>Время исполнения</th>
-            <th>Результат</th>
-        </tr>
-    </table>
-
-    <script>
-        $("document").ready(function (){ /* Выполнить функцию по окончанию загрузки страницы */
-            $("form").on("submit", function (){
-                let dataForm = $(this).serialize()  /* Представление данных из формы */
-                $.ajax({
-                    url: '/query.php',         /* Куда отправить запрос */
-                    method: 'post',             /* Метод запроса (post или get) */
-                    dataType: 'html',          /* Тип данных в ответе (xml, json, script, html). */
-                    data: dataForm,     /* Данные передаваемые в массиве */
-                    success: function(data){   /* Функция которая будет выполнена после успешного запроса  */
-                        let Table=document.getElementById('result-table');
-                        let x=choseX(data),y=choseY(data,x),r=data[8],date=choseInterval(data,0,8),
-                            time=choseTime(data,x,y),res=data[9];
-                        let tr=document.createElement('tr');
-
-                        tr.innerHTML ='<td>'+x+'</td><td>'+y+'</td><td>'+r+'</td><td>'+date+'</td><td>'+time+'</td><td>'+res+'</td>'
-                        Table.appendChild(tr);
-                    }
-                });
-            })
-        })
-        function choseX(data){
-            let x = data[10];
-            if (data[10] === '-') x = data[10] + data[11];
-            return parseInt(x);
-        }
-        function choseY(data){
-            let y = data[11];
-            if (data[10] === '-' && data[12] === '-') y = data[12]+data[13];
-            else if (data[11] === '-') y = data[11]+data[12];
-            else if (data[10] === '-') y = data[12];
-            return parseInt(y);
-        }
-        function choseInterval(data,a,b){
-            let val='';
-            for (let i=a; i < b; i++) val+=data[i];
-            return val;
-        }
-        function choseTime(data,x,y) {
-            let time=choseInterval(data,12,17);
-            if (x < 0 && y < 0) time=choseInterval(data,14,19);
-            else if (x < 0 || y < 0) time=choseInterval(data,13,18);
-            return time+' с';
-        }
-    </script>
-</div>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+<script src="form.js"></script>
 </body>
 </html>
