@@ -9,15 +9,16 @@
 
 <body>
 <div class="box">
-        <h2>
-            Костюк Александр, Поляков Даниил<br>Группа P33212 <br>Вариант: 16213
-        </h2>
-        <img
-                src="image.png"
-                alt="Не удалось не получилось">
+    <h2>
+        Костюк Александр, Поляков Даниил<br>Группа P33212 <br>Вариант: 16213
+    </h2>
+    <img
+            src="image.png"
+            alt="Не удалось не получилось">
 
     <div class="form_container">
         <form id="form" method="post" target="result" onsubmit="return false">
+
             Выберите X:
             <select name="x">
                 <option value="-3">-3</option>
@@ -32,14 +33,14 @@
             </select>
             <br>
             Введите Y:
-                <input type="text"  placeholder="-5..5" name="y" >
+            <input type="text"  placeholder="-5..5" name="y" >
             <br>
             Выберите R:
-                <input type="radio" checked="checked" name="r" value="1">1
-                <input type="radio" name="r" value="2">2
-                <input type="radio" name="r" value="3">3
-                <input type="radio" name="r" value="4">4
-                <input type="radio" name="r" value="5">5
+            <input type="radio" checked="checked" name="r" value="1">1
+            <input type="radio" name="r" value="2">2
+            <input type="radio" name="r" value="3">3
+            <input type="radio" name="r" value="4">4
+            <input type="radio" name="r" value="5">5
             <br>
             <input type="submit" id="submit" value="Отправить">
         </form>
@@ -47,16 +48,16 @@
         <span id="error"></span>
     </div>
 
-        <table id="result-table" class="table_blur">
-            <tr class="table-header">
-                <th>X</th>
-                <th>Y</th>
-                <th>R</th>
-                <th>Локальное время</th>
-                <th>Время исполнения</th>
-                <th>Результат</th>
-            </tr>
-        </table>
+    <table id="result-table" class="table_blur">
+        <tr class="table-header">
+            <th>X</th>
+            <th>Y</th>
+            <th>R</th>
+            <th>Локальное время</th>
+            <th>Время исполнения</th>
+            <th>Результат</th>
+        </tr>
+    </table>
 
     <script>
         $("document").ready(function (){ /* Выполнить функцию по окончанию загрузки страницы */
@@ -106,4 +107,3 @@
 </div>
 </body>
 </html>
-
