@@ -30,10 +30,10 @@ $("#submit").on('click', function (){
             let tr=document.createElement('tr');
             if (data == false) {
                 tr.innerHTML = '<td>' + x + '</td><td>' + y + '</td><td>' + r + '</td><td>' + date + '</td><td>' +
-                    time + " мс" + '</td><td style="background: crimson">' + "Наводчик кантужен" + '</td>'
+                    time + " мс" + '</td><td style="background: rgba(220,20,60,0.63)">' + "Промах" + '</td>'
             } else {
                 tr.innerHTML = '<td>' + x + '</td><td>' + y + '</td><td>' + r + '</td><td>' + date + '</td><td>' +
-                    time + " мс" + '</td><td style="background: green">' + "Есть пробитие" + '</td>'
+                    time + " мс" + '</td><td style="background: green">' + "Попадание" + '</td>'
             }
             Table.appendChild(tr);
             console.log(data);

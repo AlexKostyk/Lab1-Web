@@ -7,60 +7,75 @@
 </head>
 
 <body>
-    <div class="box">
-        <h2>
-            Костюк Александр, Поляков Даниил<br>Группа P33212 <br>Вариант: 16213
-        </h2>
-        <img
-                src="graph.svg"
-                alt="Не удалось не получилось">
+<div class="box">
+    <h2>
+        Костюк Александр, Поляков Даниил<br>Группа: P33212 <br>Вариант: 16213
+    </h2>
+    <img
+            src="graph.svg"
+            alt="Не удалось не получилось">
 
-        <div class="form_container">
-            <form id="form" method="get" onsubmit="return false">
-
+    <div class="form_container">
+        <form id="form" method="get" onsubmit="return false">
+            <div class="content">
                 Выберите X:
-                <select name="x">
-                    <option name="x" value="-3">-3</option>
-                    <option name="x" value="-2">-2</option>
-                    <option name="x" value="-1">-1</option>
-                    <option name="x" value="0">0</option>
-                    <option name="x" value="1">1</option>
-                    <option name="x" value="2">2</option>
-                    <option name="x" value="3">3</option>
-                    <option name="x" value="4">4</option>
-                    <option name="x" value="5">5</option>
-                </select>
-                <br>
+            </div>
+            <select id="select-css" name="x">
+                <option name="x" value="-3">-3</option>
+                <option name="x" value="-2">-2</option>
+                <option name="x" value="-1">-1</option>
+                <option name="x" value="0">0</option>
+                <option name="x" value="1">1</option>
+                <option name="x" value="2">2</option>
+                <option name="x" value="3">3</option>
+                <option name="x" value="4">4</option>
+                <option name="x" value="5">5</option>
+            </select>
+
+            <br>
+            <div class="content">
                 Введите Y:
+            </div>
+            <div id="input-css">
                 <input type="text"  placeholder="-5..5" name="y" >
-                <br>
+            </div>
+            <br>
+            <div class="content">
                 Выберите R:
+            </div>
+            <div class="radio">
                 <input type="radio" checked="checked" name="r" value="1">1
                 <input type="radio" name="r" value="2">2
                 <input type="radio" name="r" value="3">3
                 <input type="radio" name="r" value="4">4
                 <input type="radio" name="r" value="5">5
-                <br>
-                <input type="submit" id="submit" value="Отправить">
-                <input type="button" id="reset" value="Очистить таблицу">
-            </form>
+            </div>
             <br>
-        </div>
-
-        <div id="error"></div>
-
-        <table id="result-table" class="table_blur">
-            <tr class="table-header">
-                <th>X</th>
-                <th>Y</th>
-                <th>R</th>
-                <th>Локальное время</th>
-                <th>Время исполнения</th>
-                <th>Попадание</th>
-            </tr>
-        </table>
-
+            <div id="button1-css">
+                <input type="submit" id="submit" value="Отправить">
+            </div>
+            <div id="button2-css">
+                <input type="button" id="reset" value="Очистить таблицу">
+            </div>
+        </form>
+        <br>
     </div>
+
+
+    <div id="error"></div>
+
+    <table id="result-table" class="table">
+        <tr class="table-header">
+            <th>X</th>
+            <th>Y</th>
+            <th>R</th>
+            <th>Локальное время</th>
+            <th>Время исполнения</th>
+            <th>Попадание</th>
+        </tr>
+    </table>
+
+</div>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
 <script src="form.js"></script>
 </body>
